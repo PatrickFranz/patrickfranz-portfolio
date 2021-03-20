@@ -1,9 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
+import FadeIn from 'react-fade-in';
 
-import Header from "./Header"
-import { GlobalStyles } from "./GlobalStyles"
+import Header from './Header';
+import { GlobalStyles } from '../styles/GlobalStyles';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -14,18 +15,19 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <>
       <GlobalStyles />
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header siteTitle={data.site.siteMetadata.title || `Title`} />
+      {children}
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

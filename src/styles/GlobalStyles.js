@@ -1,19 +1,49 @@
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from 'styled-components';
 
+export const StyledSection = styled.section`
+  margin: 2rem auto;
+  width: 80%;
+  font-size: 3rem;
+
+  .section-heading {
+    display: inline-block;
+    font-size: 5rem;
+    color: var(--pink);
+    font-weight: 100;
+    background-color: var(--black);
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    transform: rotate(-5deg);
+    margin: 10px 0;
+  }
+`;
 export const GlobalStyles = createGlobalStyle`
+:root{
+  --dark-blue: #2c3e50;
+  --white: #ecf0f1;
+  --pink: #F910E1;
+  --black: #2d3436;
+
+  --base-font-size: 10px;
+}
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font: 112.5%/1.45em georgia, serif, sans-serif;
+  font-size: var(--base-font-size);
   box-sizing: border-box;
   overflow-y: scroll;
+  /* overflow-x: hidden; */
+  font-family: 'Inconsolata';
 }
 body {
   margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: 'Inconsolata';
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -88,7 +118,7 @@ h1 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
+  font-size: 3rem;
   line-height: 1.1;
 }
 mark {
@@ -597,4 +627,4 @@ pre tt:after {
   html {
     font-size: 100%;
   }
-}`
+}`;
