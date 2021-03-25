@@ -68,7 +68,7 @@ const StyledNav = styled.div`
   }
 `;
 
-export default function () {
+export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -83,7 +83,9 @@ export default function () {
       <div
         id="hamburger"
         onClick={handleClick}
+        onKeyDown={handleClick}
         role="button"
+        tabIndex={0}
         aria-expanded={isOpen ? true : false}
       >
         <div id="hamburger-btn"></div>

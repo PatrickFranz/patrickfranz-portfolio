@@ -1,4 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import '@fontsource/open-sans/300.css';
+import '@fontsource/open-sans/600.css';
+import '@fontsource/open-sans/800.css';
 
 export const StyledSection = styled.section`
   margin: 2rem auto;
@@ -7,6 +10,7 @@ export const StyledSection = styled.section`
 
   .section-heading {
     display: inline-block;
+    cursor: default;
     font-size: 5rem;
     color: var(--pink);
     font-weight: 100;
@@ -15,15 +19,19 @@ export const StyledSection = styled.section`
     border-radius: 5px;
     text-align: center;
     transform: rotate(-5deg);
-    margin: 10px 0;
+    margin: 4rem 0;
   }
 `;
+
 export const GlobalStyles = createGlobalStyle`
 :root{
   --dark-blue: #2c3e50;
   --white: #ecf0f1;
+  --bright-white: #f5f6fa;
   --pink: #F910E1;
   --black: #2d3436;
+  --light-gray: #b2bec3;
+  --dark-gray: #636e72;
 
   --base-font-size: 10px;
 }
@@ -35,7 +43,7 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
   /* overflow-x: hidden; */
-  font-family: 'Inconsolata';
+  font-family: 'Open Sans';
 }
 body {
   margin: 0;
@@ -43,7 +51,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: 'Inconsolata';
+  font-family: 'Open Sans';
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;

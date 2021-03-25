@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import FadeIn from 'react-fade-in';
 
 import Header from './Header';
 import { GlobalStyles } from '../styles/GlobalStyles';

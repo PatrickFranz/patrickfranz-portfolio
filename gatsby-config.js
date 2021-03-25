@@ -28,18 +28,7 @@ module.exports = {
         icon: `src/images/favicon-32x32.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-fonts-v2`,
-      options: {
-        fonts: [
-          {
-            family: 'Inconsolata',
-            variable: true,
-            weights: ['200..900'],
-          },
-        ],
-      },
-    },
+
     `gatsby-plugin-gatsby-cloud`,
   ],
 };

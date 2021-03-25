@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import TypeWriterEffect from 'react-typewriter-effect';
+import Typewriter from 'typewriter-effect';
 import styled from 'styled-components';
 import Navigation from './Navigation';
 
@@ -51,24 +51,22 @@ const Header = ({ siteTitle }) => {
         <GatsbyImage image={headshotImage} alt="Patrick Franz" />
       </div>
       <div className="title-text">
-        <TypeWriterEffect
-          textStyle={{
-            fontFamily: 'Inconsolata',
-            fontSize: '5rem',
-            fontWeight: '400',
+        <Typewriter
+          options={{
+            strings: [
+              'react-devloper: {',
+              'animal-lover: {',
+              'styled-components-fanboi: {',
+              'world-sailor: {',
+              'gatbsy-aficionado {',
+              'git-commiter {',
+              'web-developer: {',
+            ],
+            autoStart: true,
+            loop: true,
+            delay: 40,
+            pauseFor: 800,
           }}
-          startDelay={1000}
-          cursorColor="#ecf0f1"
-          multiText={[
-            'react-devloper: {',
-            'animal-lover: {',
-            'styled-components-fanboi: {',
-            'world-sailor: {',
-            'web-developer: {',
-          ]}
-          loop={true}
-          hideCursorAfterText={true}
-          typeSpeed={50}
         />
 
         <p className="name-text">patrick franz</p>
