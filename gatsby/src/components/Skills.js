@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StyledSection } from '../styles/GlobalStyles';
-import { FaReact } from '@react-icons/all-files/fa/FaReact';
-import { IoLogoJavascript } from '@react-icons/all-files/io5/IoLogoJavascript';
-import { GrGatsbyjs } from '@react-icons/all-files/gr/GrGatsbyjs';
-import { SiGraphql } from '@react-icons/all-files/si/SiGraphql';
-import { SiSass } from '@react-icons/all-files/si/SiSass';
-import { BiBookContent } from '@react-icons/all-files/bi/BiBookContent';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const StyledSkill = styled.div`
   font-size: 2rem;
@@ -15,6 +11,7 @@ const StyledSkill = styled.div`
   padding: 1rem;
   grid-template-rows: 2fr 1fr;
   align-items: center;
+  column-gap: 1rem;
   cursor: default;
 
   @media (max-width: 525px) {
@@ -22,8 +19,8 @@ const StyledSkill = styled.div`
     grid-template-rows: 2fr 1fr 1fr;
   }
 
-  .icon {
-    font-size: 6rem;
+  .gatsby-image-wrapper {
+    border-radius: 50%;
     max-width: 100px;
     grid-row: span 2;
   }
@@ -67,14 +64,41 @@ const StyledSkillsSection = styled(StyledSection)`
   }
 `;
 
-const Skill = ({ title, icon, percent, years, iconColor }) => {
-  const Icon = icon;
+const getYearsMonths = (startDate) => {
+  const today = new Date();
+  const start = new Date(startDate);
+  let stringOut = '';
+  const yearsInMonths =
+    (today.getFullYear() - start.getFullYear()) * 12 +
+    today.getMonth() -
+    start.getMonth();
+  const totalYears = Math.floor(yearsInMonths / 12);
+  const totalMonths =
+    totalYears > 0 ? yearsInMonths - totalYears * 12 : yearsInMonths;
+  if (totalMonths > 0) {
+    //Drop the the months if there are none
+    stringOut =
+      yearsInMonths < 12
+        ? `${yearsInMonths} MONTH${yearsInMonths > 1 ? 'S' : ''}` //Add the S if it's plural
+        : `${totalYears} YEAR${totalYears > 1 ? 'S' : ''} ${totalMonths} MONTH${
+            yearsInMonths > 1 ? 'S' : ''
+          }`;
+  } else {
+    stringOut =
+      yearsInMonths < 12
+        ? `${yearsInMonths} MONTH${yearsInMonths > 1 ? 'S' : ''}`
+        : `${totalYears} YEAR${totalYears > 1 ? 'S' : ''}`;
+  }
+  return stringOut;
+};
+
+const Skill = ({ title, image, percent, years }) => {
   return (
     <StyledSkill maxWidth={percent}>
-      <Icon className="icon" color={iconColor} />
+      <GatsbyImage image={image} alt={title} className="icon" />
       <span className="title">
         {title}
-        <span className="years">{years} YEARS</span>
+        <span className="years">{years}</span>
       </span>
       <span className="bar">{percent}%</span>
     </StyledSkill>
@@ -82,52 +106,45 @@ const Skill = ({ title, icon, percent, years, iconColor }) => {
 };
 
 export default function Skills() {
+  const { techstack } = useStaticQuery(graphql`
+    query {
+      techstack: allSanityTechstack {
+        nodes {
+          id
+          mastery
+          started_using
+          used_for
+          vendor
+          logoimage {
+            asset {
+              gatsbyImageData(
+                width: 200
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, PNG]
+              )
+            }
+          }
+        }
+      }
+    }
+  `);
   return (
     <StyledSkillsSection>
       <h2 className="section-heading">Skills</h2>
       <div id="skills">
-        <Skill
-          icon={FaReact}
-          iconColor="#2ed1f7"
-          title="ReactJS"
-          years={3}
-          percent={90}
-        />
-        <Skill
-          icon={GrGatsbyjs}
-          iconColor="#452475"
-          title="GatsbyJS"
-          years={1}
-          percent={85}
-        />
-        <Skill
-          icon={IoLogoJavascript}
-          iconColor="#f0db4e"
-          title="JavaScript ES6"
-          years={3}
-          percent={90}
-        />
-        <Skill
-          icon={SiGraphql}
-          iconColor="#e535ab"
-          title="GraphQL"
-          years={1}
-          percent={60}
-        />
-        <Skill
-          icon={SiSass}
-          iconColor="#c69"
-          title="Sass / CSS"
-          years={3}
-          percent={90}
-        />
-        <Skill
-          icon={BiBookContent}
-          iconColor="#f03e2f"
-          title="Sanity CMS"
-          years={1}
-          percent={60}
-        />
+        {techstack.nodes.map((skill) => {
+          const image = getImage(skill.logoimage.asset);
+          const yearsOfUsing = getYearsMonths(skill.started_using);
+          return (
+            <Skill
+              key={skill.id}
+              image={image}
+              title={skill.vendor}
+              years={yearsOfUsing}
+              percent={skill.mastery}
+            />
+          );
+        })}
       </div>
     </StyledSkillsSection>
   );

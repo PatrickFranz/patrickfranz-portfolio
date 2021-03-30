@@ -6,7 +6,14 @@
     "titleBar.activeBackground": "#732265",
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.inactiveBackground": "#73226599",
-    "titleBar.inactiveForeground": "#e7e7e799"
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "activityBar.activeBackground": "#9a2e88",
+    "activityBar.activeBorder": "#2b310f",
+    "activityBar.background": "#9a2e88",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#2b310f",
+    "activityBarBadge.foreground": "#e7e7e7"
   },
   "peacock.color": "#732265"
 }
