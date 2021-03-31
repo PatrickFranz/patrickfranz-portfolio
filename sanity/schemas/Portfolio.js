@@ -9,6 +9,11 @@ export default {
       title: "Title",
     },
     {
+      name: "url",
+      type: "url",
+      title: "URL",
+    },
+    {
       name: "desc",
       type: "array",
       of: [{ type: "block" }],
@@ -40,6 +45,11 @@ export default {
       options: {
         layout: "list",
       },
+    },
+    {
+      name: "sortOrder",
+      type: "number",
+      title: "SortOrder",
     },
   ],
 };
