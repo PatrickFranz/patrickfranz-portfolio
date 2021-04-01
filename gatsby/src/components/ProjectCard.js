@@ -1,6 +1,8 @@
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
+import { StyledButton } from '../styles/GlobalStyles';
 
 export default function ProjectCard({ project }) {
   const projectImg = getImage(project.projectImage.asset);
@@ -23,6 +25,12 @@ export default function ProjectCard({ project }) {
         image={projectImg}
         alt={`${project.title} screenshot`}
       />
+      <CSSTransition>
+        <div className="drop-menu">
+          <StyledButton className="button">More Info</StyledButton>
+          <StyledButton className="button">View</StyledButton>
+        </div>
+      </CSSTransition>
     </StyledCard>
   );
 }
@@ -39,11 +47,17 @@ const StyledCard = styled.div`
     'year  img'
     'title img'
     'title img'
-    'tech  img';
+    'tech  img'
+    'dropMenu dropMenu';
 
   &:hover {
-    transform: scale(1.01);
-    filter: drop-shadow(0 5px 3px rgba(27, 27, 27, 0.8));
+    border-radius: 5px 5px 0 0;
+    /* filter: drop-shadow(0 5px 3px rgba(27, 27, 27, 0.8)); */
+
+    .drop-menu {
+      transform: translateY(10px);
+      opacity: 1;
+    }
   }
 
   .year {
@@ -55,6 +69,7 @@ const StyledCard = styled.div`
     position: absolute;
     background: black;
     color: white;
+    z-index: 1;
     min-width: 200px;
     overflow: hidden;
     padding: 2rem;
@@ -62,7 +77,6 @@ const StyledCard = styled.div`
     font-weight: 100;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    z-index: 1;
     filter: drop-shadow(0 0 5px rgba(27, 27, 27, 0.8));
 
     @media (max-width: 480px) {
@@ -91,7 +105,7 @@ const StyledCard = styled.div`
     width: 100%;
     grid-template-columns: repeat(auto-fit, 20px);
     gap: 1rem;
-    z-index: 1;
+    z-index: 2;
 
     &.gatsby-image-wrapper {
       margin: 0 5px;
@@ -101,7 +115,25 @@ const StyledCard = styled.div`
   .project-image {
     grid-area: img;
     opacity: 0.8;
+    height: 250px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
+
+  .drop-menu {
+    grid-area: dropMenu;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(24, 24, 24, 0.8);
+    width: 100%;
+    opacity: 0.5;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    z-index: -1;
+    transform: translateY(-30px);
+    transition: all 250ms ease-in-out;
   }
 `;

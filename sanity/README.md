@@ -1,9 +1,18 @@
-# Sanity Clean Content Studio
+# Sanity Studio
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+## Patrick Franz Portfolio Site
 
-Now you can do the following things:
+## About
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+Content management for my portfolio site. Content is pulled into a GatsbyJS site at build-time and needs GraphQL deployed from Sanity
+
+## Develop
+
+To run Sanity Studio on the localhost for development purposes:
+
+`sanity start` will start the local Node server and the studio will be accessible at `http://localhost:3333`
+
+After making changes/adding/modifying studio documents. Remember to deploy the GraphQL config.
+`sanity graphql deploy`
+
+## Deploy to Production

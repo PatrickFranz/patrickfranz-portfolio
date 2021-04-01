@@ -3,11 +3,24 @@ import '@fontsource/open-sans/300.css';
 import '@fontsource/open-sans/600.css';
 import '@fontsource/open-sans/800.css';
 
+export const StyledButton = styled.button`
+  font-size: 2rem;
+  color: var(--pink);
+  font-weight: 100;
+  background-color: var(--black);
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+`;
+
 export const StyledSection = styled.section`
+  position: relative;
   padding: 8rem 0;
   margin: 0 auto;
   width: 80%;
   font-size: 3rem;
+  z-index: 1;
 
   .section-heading {
     display: inline-block;

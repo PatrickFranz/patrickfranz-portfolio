@@ -51,5 +51,16 @@ export default {
       type: "number",
       title: "SortOrder",
     },
+    {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: {
+        source: "title",
+        maxLength: 100,
+        slugify: (slug) =>
+          slug.toLowerCase().replace(/\s+/g, "-").slice(0, 100),
+      },
+    },
   ],
 };
