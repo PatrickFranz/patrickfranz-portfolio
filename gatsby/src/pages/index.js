@@ -5,6 +5,7 @@ import Contact from '../components/Contact';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import SEO from '../components/SEO';
+import Footer from '../components/Footer';
 
 const IndexPage = () => (
   <Layout>
@@ -13,6 +14,7 @@ const IndexPage = () => (
     <Portfolio />
     <Skills />
     <Contact />
+    <Footer />
   </Layout>
 );
 

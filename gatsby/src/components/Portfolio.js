@@ -37,7 +37,7 @@ export default function Portfolio() {
   `);
 
   return (
-    <SectionContainer bgColor="rgba(85, 239, 196,0.7)">
+    <SectionContainer bgColor="rgba(85, 239, 196,0.9)">
       <StyledPortfolioSection id="portfolio">
         <h2 className="section-heading">Portfolio</h2>
         <div className="portfolio-grid">
