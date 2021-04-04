@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { getImage } from 'gatsby-plugin-image';
 import { getYearsMonths } from './helper-functions';
 import Skill from './Skill';
+import SectionContainer from './SectionContainer';
 
 const StyledSkillsSection = styled(StyledSection)`
   #skills {
@@ -38,25 +39,27 @@ export default function Skills() {
     }
   `);
   return (
-    <StyledSkillsSection>
-      <h2 className="section-heading">Skills</h2>
-      <div id="skills">
-        {techstack.nodes
-          .map((skill) => {
-            const image = getImage(skill.logoimage.asset);
-            const yearsOfUsing = getYearsMonths(skill.started_using);
-            return (
-              <Skill
-                key={skill.id}
-                image={image}
-                title={skill.vendor}
-                years={yearsOfUsing}
-                percent={skill.mastery}
-              />
-            );
-          })
-          .sort((a, b) => b.props.percent - a.props.percent)}
-      </div>
-    </StyledSkillsSection>
+    <SectionContainer>
+      <StyledSkillsSection id="skills">
+        <h2 className="section-heading">Skills</h2>
+        <div id="skills">
+          {techstack.nodes
+            .map((skill) => {
+              const image = getImage(skill.logoimage.asset);
+              const yearsOfUsing = getYearsMonths(skill.started_using);
+              return (
+                <Skill
+                  key={skill.id}
+                  image={image}
+                  title={skill.vendor}
+                  years={yearsOfUsing}
+                  percent={skill.mastery}
+                />
+              );
+            })
+            .sort((a, b) => b.props.percent - a.props.percent)}
+        </div>
+      </StyledSkillsSection>
+    </SectionContainer>
   );
 }

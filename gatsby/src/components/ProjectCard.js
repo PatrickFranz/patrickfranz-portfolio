@@ -1,6 +1,6 @@
+import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import { StyledButton } from '../styles/GlobalStyles';
 
@@ -25,12 +25,14 @@ export default function ProjectCard({ project }) {
         image={projectImg}
         alt={`${project.title} screenshot`}
       />
-      <CSSTransition>
-        <div className="drop-menu">
+      <div className="drop-menu">
+        <Link to={`project/${project.slug.current}`}>
           <StyledButton className="button">More Info</StyledButton>
+        </Link>
+        <a href={project.url} target="_blank" rel="noreferrer">
           <StyledButton className="button">View</StyledButton>
-        </div>
-      </CSSTransition>
+        </a>
+      </div>
     </StyledCard>
   );
 }
@@ -67,7 +69,7 @@ const StyledCard = styled.div`
   .title {
     grid-area: title;
     position: absolute;
-    background: black;
+    background: var(--card-title-background);
     color: white;
     z-index: 1;
     min-width: 200px;
@@ -124,8 +126,8 @@ const StyledCard = styled.div`
     grid-area: dropMenu;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(24, 24, 24, 0.8);
+    justify-content: space-around;
+    background: var(--black);
     width: 100%;
     opacity: 0.5;
     height: 40px;

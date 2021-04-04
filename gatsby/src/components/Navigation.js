@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -70,6 +71,13 @@ const StyledNav = styled.div`
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuItems = {
+    HOME: '/',
+    ABOUT: '/#about',
+    PORTFOLIO: '/#portfolio',
+    SKILLS: '/#skills',
+    CONTACT: '/#contact',
+  };
   const handleClick = () => {
     setIsOpen(!isOpen);
     console.log(isOpen);
@@ -93,11 +101,13 @@ export default function Navigation() {
       {isOpen && (
         <div id="menu">
           <ul>
-            <li>Menu Item 1</li>
-            <li>Menu Item 2</li>
-            <li>Menu Item 3</li>
-            <li>Menu Item 4</li>
-            <li>Menu Item 5</li>
+            {Object.keys(menuItems).map((item) => (
+              <li>
+                <Link to={menuItems[item]} onClick={() => handleClick()}>
+                  {item}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       )}

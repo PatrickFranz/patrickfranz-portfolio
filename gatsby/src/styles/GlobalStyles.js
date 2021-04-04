@@ -3,15 +3,42 @@ import '@fontsource/open-sans/300.css';
 import '@fontsource/open-sans/600.css';
 import '@fontsource/open-sans/800.css';
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.span`
   font-size: 2rem;
   color: var(--pink);
+  position: relative;
   font-weight: 100;
   background-color: var(--black);
   padding: 1rem;
-  border-radius: 5px;
   text-align: center;
   cursor: pointer;
+
+  &::before,
+  &::after {
+    content: '';
+    transition: all 250ms ease;
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: var(--black);
+    top: 50%;
+    border-radius: 10%;
+  }
+
+  &::before {
+    left: -5px;
+  }
+  &::after {
+    right: -5px;
+  }
+
+  &.button:hover {
+    &::before,
+    &::after {
+      width: 10px;
+      background-color: var(--pink);
+    }
+  }
 `;
 
 export const StyledSection = styled.section`
@@ -46,6 +73,8 @@ export const GlobalStyles = createGlobalStyle`
   --black: #2d3436;
   --light-gray: #b2bec3;
   --dark-gray: #636e72;
+
+  --card-title-background: rgba(45,52,54,0.85);
 
   --base-font-size: 10px;
 }
@@ -107,10 +136,40 @@ template {
 }
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: var(--black);
+  position: relative;
   -webkit-text-decoration-skip: objects;
+
+  &::before,
+  &::after {
+    content: '';
+    transition: all 250ms ease;
+    position: absolute;
+    height: 4px;
+    width: 0;
+    background-color: var(--black);
+    top: 50%;
+    border-radius: 10%;
+  }
+
+  &::before {
+    left: -25px;
+  }
+  &::after {
+    right: -25px;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      width: 20px;
+      background-color: var(--black);
+    }
+  }
 }
-a:active,
-a:hover {
+a:active{
+  color: var(--black);
   outline-width: 0;
 }
 abbr[title] {

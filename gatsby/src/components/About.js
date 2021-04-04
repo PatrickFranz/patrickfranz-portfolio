@@ -8,7 +8,7 @@ const StyledAboutSection = styled(StyledSection)``;
 export default function About() {
   return (
     <SectionContainer bgColor="rgba(9, 132, 227,0.7)">
-      <StyledAboutSection>
+      <StyledAboutSection id="about">
         <h2 className="section-heading">About</h2>
         <p>
           My name is Patrick and I am a web developer. If I’m not at my home in

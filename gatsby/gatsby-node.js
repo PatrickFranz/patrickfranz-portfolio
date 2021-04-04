@@ -1,7 +1,30 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require(`path`);
 
-// You can delete this file if you're not using it
+// Create Project pages dynamically
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const projectPage = path.resolve(`src/templates/ProjectPage.js`);
+  const result = await graphql(`
+    query {
+      projects: allSanityPortfolio {
+        edges {
+          node {
+            title
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+  result.data.projects.edges.forEach((edge) => {
+    createPage({
+      path: `project/${edge.node.slug.current}`,
+      component: projectPage,
+      context: {
+        title: edge.node.title,
+      },
+    });
+  });
+};

@@ -12,7 +12,11 @@ export default function Portfolio() {
         nodes {
           id
           title
+          url
           yearBuilt
+          slug {
+            current
+          }
           projectImage {
             asset {
               gatsbyImageData(width: 600)
@@ -34,12 +38,16 @@ export default function Portfolio() {
 
   return (
     <SectionContainer bgColor="rgba(85, 239, 196,0.7)">
-      <StyledPortfolioSection>
+      <StyledPortfolioSection id="portfolio">
         <h2 className="section-heading">Portfolio</h2>
         <div className="portfolio-grid">
-          {projects.nodes.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {projects.nodes
+            .map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))
+            .sort(
+              (a, b) => b.props.project.yearBuilt - a.props.project.yearBuilt
+            )}
         </div>
       </StyledPortfolioSection>
     </SectionContainer>
