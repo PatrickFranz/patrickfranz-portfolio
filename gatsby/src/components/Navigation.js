@@ -80,7 +80,6 @@ export default function Navigation() {
   };
   const handleClick = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
     !isOpen
       ? document.getElementById('hamburger-btn').classList.add('open-menu')
       : document.getElementById('hamburger-btn').classList.remove('open-menu');
@@ -102,8 +101,12 @@ export default function Navigation() {
         <div id="menu">
           <ul>
             {Object.keys(menuItems).map((item) => (
-              <li>
-                <Link to={menuItems[item]} onClick={() => handleClick()}>
+              <li key={item}>
+                <Link
+                  className="dazzle"
+                  to={menuItems[item]}
+                  onClick={() => handleClick()}
+                >
                   {item}
                 </Link>
               </li>

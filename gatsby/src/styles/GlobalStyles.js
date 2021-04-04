@@ -5,7 +5,7 @@ import '@fontsource/open-sans/800.css';
 
 export const StyledButton = styled.span`
   font-size: 2rem;
-  color: var(--pink);
+  color: var(--white);
   position: relative;
   font-weight: 100;
   background-color: var(--black);
@@ -36,7 +36,7 @@ export const StyledButton = styled.span`
     &::before,
     &::after {
       width: 10px;
-      background-color: var(--pink);
+      background-color: var(--white);
     }
   }
 `;
@@ -134,7 +134,7 @@ progress {
 template {
   display: none;
 }
-a {
+.dazzle {
   background-color: transparent;
   text-decoration: none;
   color: var(--black);
@@ -167,6 +167,10 @@ a {
       background-color: var(--black);
     }
   }
+}
+a{
+  color: initial;
+  text-decoration:none;
 }
 a:active{
   color: var(--black);

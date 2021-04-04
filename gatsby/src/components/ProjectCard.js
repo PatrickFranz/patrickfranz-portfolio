@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components';
@@ -26,9 +25,9 @@ export default function ProjectCard({ project }) {
         alt={`${project.title} screenshot`}
       />
       <div className="drop-menu">
-        <Link to={`project/${project.slug.current}`}>
+        {/* <Link to={`project/${project.slug.current}`}>
           <StyledButton className="button">More Info</StyledButton>
-        </Link>
+        </Link> */}
         <a href={project.url} target="_blank" rel="noreferrer">
           <StyledButton className="button">View</StyledButton>
         </a>
@@ -54,7 +53,6 @@ const StyledCard = styled.div`
 
   &:hover {
     border-radius: 5px 5px 0 0;
-    /* filter: drop-shadow(0 5px 3px rgba(27, 27, 27, 0.8)); */
 
     .drop-menu {
       transform: translateY(10px);
