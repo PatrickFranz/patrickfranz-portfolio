@@ -57,12 +57,12 @@ const StyledSkill = styled.div`
 export default function Skill({ title, image, percent, years }) {
   return (
     <StyledSkill maxWidth={percent}>
-      <GatsbyImage image={image} alt={title} className="icon" />
+      {/* <GatsbyImage image={image} alt={title} className="icon" />
       <span className="title">
         {title}
         <span className="years">{years}</span>
       </span>
-      <span className="bar">{percent}%</span>
+      <span className="bar">{percent}%</span> */}
     </StyledSkill>
   );
 }

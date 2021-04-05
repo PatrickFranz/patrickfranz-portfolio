@@ -36,18 +36,19 @@ const Header = ({ siteTitle }) => {
     query {
       headshot: file(relativePath: { eq: "headshot.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 500, placeholder: BLURRED)
+          gatsbyImageData(width: 300)
         }
       }
     }
   `);
-
-  const headshotImage = getImage(data.headshot);
   return (
     <StyledHeader>
       <Navigation />
       <div className="headshot">
-        <GatsbyImage image={headshotImage} alt="Patrick Franz" />
+        <GatsbyImage
+          image={getImage(data.headshot.childImageSharp.gatsbyImageData)}
+          alt="Patrick Franz"
+        />
       </div>
       <div className="title-text">
         <p>web-developer: &#123;</p>

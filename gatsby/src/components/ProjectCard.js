@@ -1,10 +1,11 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { getGatsbyImageData } from 'gatsby-source-sanity';
 import React from 'react';
 import styled from 'styled-components';
 import { StyledButton } from '../styles/GlobalStyles';
 
 export default function ProjectCard({ project }) {
-  const projectImg = getImage(project.projectImage.asset);
+  const projectImg = getGatsbyImageData(project.projectImage.asset);
   return (
     <StyledCard>
       <p className="year">{project.yearBuilt}</p>
@@ -14,7 +15,7 @@ export default function ProjectCard({ project }) {
           <GatsbyImage
             className="tech-logo"
             key={tech.id}
-            image={getImage(tech.logoimage.asset)}
+            image={getGatsbyImageData(tech.logoimage.asset)}
             alt="Vendor Logo"
           />
         ))}

@@ -19,7 +19,7 @@ export default function Portfolio() {
           }
           projectImage {
             asset {
-              gatsbyImageData(width: 600)
+              id
             }
           }
           techStack {
@@ -27,7 +27,7 @@ export default function Portfolio() {
             vendor_url
             logoimage {
               asset {
-                gatsbyImageData(width: 50)
+                id
               }
             }
           }
