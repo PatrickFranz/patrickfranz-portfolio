@@ -2,10 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { StyledSection } from '../styles/GlobalStyles';
 import SectionContainer from './SectionContainer';
-import { HiOutlineMail, HiPhone } from 'react-icons/hi';
-import { AiOutlineLinkedin, AiOutlineGithub } from 'react-icons/ai';
-import { GiModernCity } from 'react-icons/gi';
-import { GrDocumentPdf } from 'react-icons/gr';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faEnvelope,
+  faPhoneAlt,
+  faCity,
+  faFilePdf,
+} from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const StyledSocialIcon = styled.div`
   width: 100%;
@@ -15,6 +19,7 @@ const StyledSocialIcon = styled.div`
   &:hover .social-text {
     opacity: 1;
   }
+
   a {
     text-align: center;
   }
@@ -30,12 +35,14 @@ const StyledContactSection = styled(StyledSection)`
     grid-template-columns: 1fr 1fr;
     p > svg {
       margin-bottom: -4px;
+      color: var(--black);
     }
     p > span {
       padding-left: 10px;
     }
     .social-icons svg {
-      font-size: 3rem;
+      font-size: 8rem;
+      color: var(--black);
     }
     .phone:after {
       content: '650.919.3736';
@@ -57,17 +64,17 @@ export default function Contact() {
           <div className="contact-info">
             <p>Reach Out</p>
             <p>
-              <HiOutlineMail />
+              <FontAwesomeIcon icon={faEnvelope} />
               <span className="email">
                 patrick<i>@</i>patrickfranz<i>.</i>com
               </span>
             </p>
             <p>
-              <HiPhone />
+              <FontAwesomeIcon icon={faPhoneAlt} />
               <span className="phone"></span>
             </p>
             <p>
-              <GiModernCity />
+              <FontAwesomeIcon icon={faCity} />
               <span>San Diego, California</span>
             </p>
           </div>
@@ -79,7 +86,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiOutlineGithub size={70} />
+                  <FontAwesomeIcon classNmae="social-ico" icon={faGithub} />
                   <p className="social-text">GitHub</p>
                 </a>
               </StyledSocialIcon>
@@ -89,7 +96,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <AiOutlineLinkedin size={70} />
+                  <FontAwesomeIcon classNmae="social-ico" icon={faLinkedin} />
                   <p className="social-text">LinkedIn</p>
                 </a>
               </StyledSocialIcon>
@@ -99,7 +106,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <GrDocumentPdf size={70} />
+                  <FontAwesomeIcon classNmae="social-ico" icon={faFilePdf} />
                   <p className="social-text">Resume</p>
                 </a>
               </StyledSocialIcon>
