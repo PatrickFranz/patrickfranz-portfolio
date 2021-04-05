@@ -5,7 +5,6 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import Portfolio from "./Portfolio";
 import TechStack from "./TechStack";
-import Image from "./Image";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
