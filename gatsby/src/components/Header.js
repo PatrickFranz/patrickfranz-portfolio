@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import Typewriter from 'typewriter-effect';
 import styled from 'styled-components';
 import Navigation from './Navigation';
 
@@ -51,7 +50,8 @@ const Header = ({ siteTitle }) => {
         <GatsbyImage image={headshotImage} alt="Patrick Franz" />
       </div>
       <div className="title-text">
-        <Typewriter
+        <p>web-developer: &#123;</p>
+        {/* <Typewriter
           options={{
             strings: [
               'react-devloper: {',
@@ -67,8 +67,7 @@ const Header = ({ siteTitle }) => {
             delay: 40,
             pauseFor: 800,
           }}
-        />
-
+        /> */}
         <p className="name-text">patrick franz</p>
         <p className="">&#125;;</p>
       </div>
