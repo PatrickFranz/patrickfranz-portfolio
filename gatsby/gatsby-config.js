@@ -36,6 +36,7 @@ module.exports = {
         icon: `src/images/favicon-32x32.png`,
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-fontawesome-css`,
     `gatsby-plugin-gatsby-cloud`,
   ],

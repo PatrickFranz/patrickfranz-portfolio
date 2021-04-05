@@ -27,25 +27,29 @@ const StyledSocialIcon = styled.div`
   .social-text {
     transition: all 250ms ease;
     opacity: 0;
+
+    @media (max-width: 1024px) {
+      opacity: 1;
+    }
   }
 `;
 const StyledContactSection = styled(StyledSection)`
   .contact-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    justify-content: center;
+
     p > svg {
       margin-bottom: -4px;
       color: var(--black);
     }
     p > span {
-      padding-left: 10px;
+      margin-left: 20px;
     }
     .social-icons svg {
       font-size: 8rem;
       color: var(--black);
-    }
-    .phone:after {
-      content: '650.919.3736';
     }
     .social-icons {
       display: flex;
@@ -71,7 +75,7 @@ export default function Contact() {
             </p>
             <p>
               <FontAwesomeIcon icon={faPhoneAlt} />
-              <span className="phone"></span>
+              <span className="phone">650.919.3736</span>
             </p>
             <p>
               <FontAwesomeIcon icon={faCity} />

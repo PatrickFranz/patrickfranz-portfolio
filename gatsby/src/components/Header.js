@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import Typewriter from 'typewriter-effect';
 import styled from 'styled-components';
 import Navigation from './Navigation';
 
@@ -12,18 +13,35 @@ const StyledHeader = styled.header`
   padding: 0;
   margin: 0;
   box-shadow: 0 2px 5px var(--dark-blue);
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 
   .headshot {
     align-items: center;
     display: flex;
     justify-content: center;
     width: 50%;
+    @media (max-width: 1200px) {
+      width: 30%;
+    }
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   .title-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 5rem;
+    font-size: 4rem;
+
+    @media (max-width: 1200px) {
+      font-size: 3rem;
+    }
+    @media (max-width: 600px) {
+      width: 50%;
+      margin: 0 auto;
+    }
 
     .name-text {
       margin-left: 5rem;
@@ -36,7 +54,7 @@ const Header = ({ siteTitle }) => {
     query {
       headshot: file(relativePath: { eq: "headshot.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 300)
+          gatsbyImageData(width: 300, placeholder: DOMINANT_COLOR)
         }
       }
     }
@@ -51,13 +69,12 @@ const Header = ({ siteTitle }) => {
         />
       </div>
       <div className="title-text">
-        <p>web-developer: &#123;</p>
-        {/* <Typewriter
+        <Typewriter
           options={{
             strings: [
               'react-devloper: {',
               'animal-lover: {',
-              'styled-components-fanboi: {',
+              'styled-components-styler: {',
               'world-sailor: {',
               'gatbsy-aficionado {',
               'git-commiter {',
@@ -68,7 +85,7 @@ const Header = ({ siteTitle }) => {
             delay: 40,
             pauseFor: 800,
           }}
-        /> */}
+        />
         <p className="name-text">patrick franz</p>
         <p className="">&#125;;</p>
       </div>
