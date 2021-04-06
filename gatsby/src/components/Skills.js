@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { StyledSection } from '../styles/GlobalStyles';
 import { graphql, useStaticQuery } from 'gatsby';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
 import { getYearsMonths } from './helper-functions';
 import Skill from './Skill';
 import SectionContainer from './SectionContainer';
@@ -26,9 +25,7 @@ export default function Skills() {
           used_for
           vendor
           logoimage {
-            asset {
-              id
-            }
+            ...ImageWithPreview
           }
         }
       }
@@ -41,13 +38,11 @@ export default function Skills() {
         <div id="skills">
           {techstack.nodes
             .map((skill) => {
-              const image = getGatsbyImageData(skill.logoimage.asset);
               const yearsOfUsing = getYearsMonths(skill.started_using);
-              console.log(image);
               return (
                 <Skill
                   key={skill.id}
-                  image={image}
+                  image={skill.logoimage}
                   title={skill.vendor}
                   years={yearsOfUsing}
                   percent={skill.mastery}

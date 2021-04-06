@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GatsbyImage } from 'gatsby-plugin-image';
-
+import Image from 'gatsby-plugin-sanity-image';
 const StyledSkill = styled.div`
   font-size: 2rem;
   display: grid;
@@ -17,10 +16,11 @@ const StyledSkill = styled.div`
     grid-template-rows: 2fr 1fr 1fr;
   }
 
-  .gatsby-image-wrapper {
+  img {
     border-radius: 5px;
-    max-width: 100px;
+    max-width: 75px;
     grid-row: span 2;
+    margin: 0;
   }
   .title {
     padding-left: 5px;
@@ -57,12 +57,12 @@ const StyledSkill = styled.div`
 export default function Skill({ title, image, percent, years }) {
   return (
     <StyledSkill maxWidth={percent}>
-      {/* <GatsbyImage image={image} alt={title} className="icon" />
+      <Image {...image} alt={title} className="icon" width={200} />
       <span className="title">
         {title}
         <span className="years">{years}</span>
       </span>
-      <span className="bar">{percent}%</span> */}
+      <span className="bar">{percent}%</span>
     </StyledSkill>
   );
 }
