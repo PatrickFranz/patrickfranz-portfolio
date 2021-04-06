@@ -1,28 +1,27 @@
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { getGatsbyImageData } from 'gatsby-source-sanity';
 import React from 'react';
 import styled from 'styled-components';
+import Image from 'gatsby-plugin-sanity-image';
 import { StyledButton } from '../styles/GlobalStyles';
 
 export default function ProjectCard({ project }) {
-  const projectImg = getGatsbyImageData(project.projectImage.asset);
   return (
     <StyledCard>
       <p className="year">{project.yearBuilt}</p>
       <h1 className="title">{project.title}</h1>
       <div className="tech">
         {project.techStack.map((tech) => (
-          <GatsbyImage
+          <Image
+            {...tech.logoimage}
+            alt="Vendor Logo"
             className="tech-logo"
             key={tech.id}
-            image={getGatsbyImageData(tech.logoimage.asset)}
-            alt="Vendor Logo"
+            width={50}
           />
         ))}
       </div>
-      <GatsbyImage
+      <Image
+        {...project.projectImage}
         className="project-image"
-        image={projectImg}
         alt={`${project.title} screenshot`}
       />
       <div className="drop-menu">
@@ -56,7 +55,7 @@ const StyledCard = styled.div`
     border-radius: 5px 5px 0 0;
 
     .drop-menu {
-      transform: translateY(10px);
+      transform: translateY(5px);
       opacity: 1;
     }
   }
@@ -108,7 +107,7 @@ const StyledCard = styled.div`
     gap: 1rem;
     z-index: 2;
 
-    &.gatsby-image-wrapper {
+    img {
       margin: 0 5px;
     }
   }
@@ -134,7 +133,7 @@ const StyledCard = styled.div`
     border-radius: 0 0 5px 5px;
     position: absolute;
     z-index: -1;
-    transform: translateY(-30px);
+    transform: translateY(-40px);
     transition: all 250ms ease-in-out;
   }
 `;

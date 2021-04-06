@@ -18,17 +18,13 @@ export default function Portfolio() {
             current
           }
           projectImage {
-            asset {
-              id
-            }
+            ...ImageWithPreview
           }
           techStack {
             id
             vendor_url
             logoimage {
-              asset {
-                id
-              }
+              ...ImageWithPreview
             }
           }
         }
@@ -37,7 +33,7 @@ export default function Portfolio() {
   `);
 
   return (
-    <SectionContainer bgColor="rgba(85, 239, 196,0.9)">
+    <SectionContainer bgColor="rgba(249, 127, 81,1.0)">
       <StyledPortfolioSection id="portfolio">
         <h2 className="section-heading">Portfolio</h2>
         <div className="portfolio-grid">
@@ -57,6 +53,7 @@ export default function Portfolio() {
 const StyledPortfolioSection = styled(StyledSection)`
   .portfolio-grid {
     display: grid;
+    justify-content: space-around;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
     grid-template-rows: repeat(auto-fit, minmax(300px, 300px));

@@ -32,7 +32,7 @@ export default function Skills() {
     }
   `);
   return (
-    <SectionContainer>
+    <SectionContainer bgColor="rgba(245, 246, 250,1.0)">
       <StyledSkillsSection id="skills">
         <h2 className="section-heading">Skills</h2>
         <div id="skills">

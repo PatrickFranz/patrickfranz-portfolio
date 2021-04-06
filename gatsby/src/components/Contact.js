@@ -66,7 +66,6 @@ export default function Contact() {
         <h2 className="section-heading">Contact</h2>
         <div className="contact-wrapper">
           <div className="contact-info">
-            <p>Reach Out</p>
             <p>
               <FontAwesomeIcon icon={faEnvelope} />
               <span className="email">
@@ -90,7 +89,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon classNmae="social-ico" icon={faGithub} />
+                  <FontAwesomeIcon className="social-ico" icon={faGithub} />
                   <p className="social-text">GitHub</p>
                 </a>
               </StyledSocialIcon>
@@ -100,7 +99,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon classNmae="social-ico" icon={faLinkedin} />
+                  <FontAwesomeIcon className="social-ico" icon={faLinkedin} />
                   <p className="social-text">LinkedIn</p>
                 </a>
               </StyledSocialIcon>
@@ -110,8 +109,8 @@ export default function Contact() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon classNmae="social-ico" icon={faFilePdf} />
-                  <p className="social-text">Resume</p>
+                  <FontAwesomeIcon className="social-ico" icon={faFilePdf} />
+                  <p className="social-text">Résumé</p>
                 </a>
               </StyledSocialIcon>
             </div>
