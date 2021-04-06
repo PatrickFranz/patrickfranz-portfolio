@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import Typewriter from 'typewriter-effect';
 import styled from 'styled-components';
 import Navigation from './Navigation';
@@ -54,7 +54,7 @@ const Header = ({ siteTitle }) => {
     query {
       headshot: file(relativePath: { eq: "headshot.png" }) {
         childImageSharp {
-          gatsbyImageData(width: 300, placeholder: DOMINANT_COLOR)
+          gatsbyImageData(width: 350, placeholder: BLURRED)
         }
       }
     }
@@ -64,7 +64,7 @@ const Header = ({ siteTitle }) => {
       <Navigation />
       <div className="headshot">
         <GatsbyImage
-          image={getImage(data.headshot.childImageSharp.gatsbyImageData)}
+          image={data.headshot.childImageSharp.gatsbyImageData}
           alt="Patrick Franz"
         />
       </div>
