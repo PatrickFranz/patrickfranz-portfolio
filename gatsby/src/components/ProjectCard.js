@@ -40,6 +40,7 @@ const StyledCard = styled.div`
   background: var(--bright-white);
   position: relative;
   width: 100%;
+  height: 300px;
   transition: all 500ms;
   justify-content: space-between;
   border-radius: 5px;
@@ -63,6 +64,9 @@ const StyledCard = styled.div`
   .year {
     grid-area: year;
     padding: 5px 2rem;
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
   .title {
     grid-area: title;
@@ -78,7 +82,6 @@ const StyledCard = styled.div`
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     filter: drop-shadow(0 0 5px rgba(27, 27, 27, 0.8));
-
     @media (max-width: 480px) {
       font-size: 1.5rem;
     }
@@ -115,9 +118,10 @@ const StyledCard = styled.div`
   .project-image {
     grid-area: img;
     opacity: 0.8;
-    height: 250px;
+    min-height: 225px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    align-self: center;
   }
 
   .drop-menu {

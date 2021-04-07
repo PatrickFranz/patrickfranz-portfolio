@@ -16,6 +16,13 @@ const StyledSocialIcon = styled.div`
   display: flex;
   justify-content: space-evenly;
 
+  @media (max-width: 1200px) {
+    font-size: 3rem;
+  }
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+
   &:hover .social-text {
     opacity: 1;
   }
@@ -29,7 +36,11 @@ const StyledSocialIcon = styled.div`
     opacity: 0;
 
     @media (max-width: 1024px) {
+      font-size: 2rem;
       opacity: 1;
+    }
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
     }
   }
 `;
@@ -39,22 +50,52 @@ const StyledContactSection = styled(StyledSection)`
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 20px;
     justify-content: center;
+    @media (max-width: 1200px) {
+      font-size: 2rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 1.5rem;
+    }
 
     p > svg {
       margin-bottom: -4px;
       color: var(--black);
+      @media (max-width: 1200px) {
+        font-size: 2rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 1.5rem;
+      }
     }
     p > span {
       margin-left: 20px;
+      @media (max-width: 1200px) {
+        font-size: 2rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 1.5rem;
+      }
     }
     .social-icons svg {
       font-size: 8rem;
       color: var(--black);
+      @media (max-width: 1200px) {
+        font-size: 2rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 1.5rem;
+      }
     }
     .social-icons {
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 1200px) {
+        font-size: 2rem;
+      }
+      @media (max-width: 600px) {
+        font-size: 1.5rem;
+      }
     }
   }
 `;

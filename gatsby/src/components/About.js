@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import { StyledSection } from '../styles/GlobalStyles';
 import SectionContainer from './SectionContainer';
 
-const StyledAboutSection = styled(StyledSection)``;
+const StyledAboutSection = styled(StyledSection)`
+  @media (max-width: 600px) {
+    font-size: 2rem;
+  }
+`;
 
 export default function About() {
   return (
@@ -18,9 +22,21 @@ export default function About() {
           5 years.
         </p>
         <p>
-          These days I'm incrediably passionate about React, Gatsby and the
-          JAMStack and how that technology is improving everyones experience on
-          the web.
+          Focused on building beautiful and functional websites using React (
+          GatsbyJS
+          <span role="img" aria-label="Gatsby Love">
+            😻
+          </span>
+          ), styling components using Styled Components and SASS, and
+          occasionally using Frameworks just as Bootstrap or Material Design.
+        </p>
+        {/* TODO: Add More|Less button here */}
+
+        <p>
+          These days you're going to find me digging deep into modern web
+          databases such as MongoDB and PostgresSQL, and backend frameworks like
+          NodeJS and Express Server to round out my ability to operate as a
+          full-stack developer.
         </p>
       </StyledAboutSection>
     </SectionContainer>

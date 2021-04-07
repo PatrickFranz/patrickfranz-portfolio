@@ -4,16 +4,25 @@ import Image from 'gatsby-plugin-sanity-image';
 const StyledSkill = styled.div`
   font-size: 2rem;
   display: grid;
-  grid-template-columns: 80px 1fr 1fr;
+  grid-template-columns: auto 1fr;
   padding: 1rem;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: auto auto;
   align-items: center;
   column-gap: 1rem;
   cursor: default;
 
   @media (max-width: 525px) {
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    .title {
+      font-size: 1.5rem;
+    }
+    .years {
+      display: none;
+    }
+    .bar {
+      font-size: 1.5rem;
+    }
   }
 
   img {
@@ -40,7 +49,8 @@ const StyledSkill = styled.div`
     text-align: right;
   }
   .bar {
-    max-width: ${(props) => props.maxWidth}%;
+    max-width: ${(props) => props.maxWidth - 2}%;
+    width: 100%;
     border-radius: 15px;
     box-shadow: 0px 10px 20px 2px var(--light-gray);
     background: linear-gradient(
@@ -48,7 +58,6 @@ const StyledSkill = styled.div`
       rgba(249, 16, 225, 0.8) 40%,
       rgba(49, 115, 180, 0.8) 100%
     );
-    grid-column: span 2;
     text-align: center;
     align-content: center;
   }

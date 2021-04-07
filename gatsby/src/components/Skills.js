@@ -11,6 +11,10 @@ const StyledSkillsSection = styled(StyledSection)`
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+
+    @media (max-width: 525px) {
+      grid-template-columns: 1fr;
+    }
   }
 `;
 

@@ -54,7 +54,8 @@ const StyledPortfolioSection = styled(StyledSection)`
   .portfolio-grid {
     display: grid;
     justify-content: space-around;
-    gap: 2rem;
+    column-gap: 2rem;
+    row-gap: 8rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
     grid-template-rows: repeat(auto-fit, minmax(300px, 300px));
   }

@@ -39,7 +39,8 @@ const StyledHeader = styled.header`
       font-size: 3rem;
     }
     @media (max-width: 600px) {
-      width: 50%;
+      width: 80%;
+      font-size: 2rem;
       margin: 0 auto;
     }
 
