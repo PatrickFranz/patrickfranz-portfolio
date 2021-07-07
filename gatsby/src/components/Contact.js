@@ -14,7 +14,6 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 const StyledSocialIcon = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
 
   @media (max-width: 1200px) {
     font-size: 3rem;
@@ -83,12 +82,11 @@ const StyledContactSection = styled(StyledSection)`
         font-size: 2rem;
       }
       @media (max-width: 600px) {
-        font-size: 1.5rem;
       }
     }
     .social-icons {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       @media (max-width: 1200px) {
         font-size: 2rem;

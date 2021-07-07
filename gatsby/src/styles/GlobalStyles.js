@@ -49,6 +49,10 @@ export const StyledSection = styled.section`
   font-size: 3rem;
   z-index: 1;
 
+  @media (max-width: 600px) {
+    width: 95%;
+  }
+
   .section-heading {
     display: inline-block;
     cursor: default;
@@ -61,6 +65,13 @@ export const StyledSection = styled.section`
     text-align: center;
     transform: rotate(-5deg);
     margin: 4rem 0;
+
+    @media (max-width: 1200px) {
+    }
+    @media (max-width: 600px) {
+      margin-left: 1rem;
+      font-size: 2.5rem;
+    }
   }
 `;
 
