@@ -25,12 +25,15 @@ export default function ProjectCard({ project }) {
         alt={`${project.title} screenshot`}
       />
       <div className="drop-menu">
-        {/* <Link to={`project/${project.slug.current}`}>
-          <StyledButton className="button">More Info</StyledButton>
-        </Link> */}
-        <a href={project.url} target="_blank" rel="noreferrer">
-          <StyledButton className="button">View</StyledButton>
-        </a>
+        {project.url.includes('patrickfranz.com') && (
+          <StyledButton className="button">You're here!</StyledButton>
+        )}
+
+        {!project.url.includes('patrickfranz.com') && (
+          <a href={project.url} target="_blank" rel="noreferrer">
+            <StyledButton className="button">Visit Site</StyledButton>
+          </a>
+        )}
       </div>
     </StyledCard>
   );
