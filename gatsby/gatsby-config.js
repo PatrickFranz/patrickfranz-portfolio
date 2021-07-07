@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Patrick Franz Portfolio 2021`,
-    description: `Kicking off the year after the best/worst year ever.`,
+    description: `Kicking off the year after the best/worst year.`,
     author: `@patrickfranz`,
   },
   plugins: [

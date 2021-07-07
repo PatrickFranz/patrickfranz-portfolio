@@ -144,7 +144,7 @@ export default function Contact() {
               </StyledSocialIcon>
               <StyledSocialIcon>
                 <a
-                  href="https://www.dropbox.com/s/nieeq3pys02ff9i/PatrickFranzResume_FE-2021.pdf?dl=0"
+                  href="https://www.dropbox.com/s/jdj42w82y1nbm7v/PatrickFranzResume_06-2021.pdf?dl=0"
                   target="_blank"
                   rel="noreferrer"
                 >
