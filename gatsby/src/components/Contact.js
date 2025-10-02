@@ -113,7 +113,7 @@ export default function Contact() {
             </p>
             <p>
               <FontAwesomeIcon icon={faPhoneAlt} />
-              <span className="phone">650.919.3736</span>
+              <span className="phone">650.285.8383</span>
             </p>
             <p>
               <FontAwesomeIcon icon={faCity} />

@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <Header siteTitle={data.site.siteMetadata.title || `Title`} />
+      <Header siteTitle={data.site.siteMetadata.title || `Patrick Franz Portfolio`} />
       {children}
     </>
   );
