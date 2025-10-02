@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home Page" />
+    <Seo title="Patrick Franz Portfolio" />
     <About />
     <Portfolio />
     <Skills />
